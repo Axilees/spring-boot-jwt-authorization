@@ -23,6 +23,12 @@ public class AuthenticationController {
     @Autowired
     private JwtRefreshTokenService jwtRefreshTokenService;
 
+
+    @GetMapping("message")
+    public String getMessage(){
+        return "Server is working!";
+    }
+
     @PostMapping("sign-up")
     public ResponseEntity<?> signUp(@RequestBody User user) {
         if (userService.findByUserName(user.getUsername()).isPresent()) {
